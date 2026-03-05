@@ -227,6 +227,10 @@ export function selectDoubleClickedWord(evt: MouseEvent) {
     const selection = doc.getSelection();
     if (!selection) return;
 
+    // If the browser already created a selection (e.g., native double-click word selection),
+    // don't override it. This allows word-wise selection extension by dragging after double-click.
+    if (selection.toString()) return;
+
     let range = null;
 
     if (doc.caretRangeFromPoint) {

@@ -302,7 +302,7 @@ export function getAndroidWebViewVersion() {
  */
 export async function getSystemInfo(): Promise<any> {
     if (window.electron) {
-         
+
         // eslint-disable-next-line @typescript-eslint/no-require-imports
         const os = require('os') as typeof import('os');
         return {
